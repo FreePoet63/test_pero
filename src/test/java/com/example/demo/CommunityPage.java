@@ -5,8 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class CommunityPage {
     // Локаторы элементов
@@ -26,6 +25,7 @@ public class CommunityPage {
 
     // Метод проверки количества услуг
     public void verifyTotalService() {
+        executeJavaScript("window.scrollBy(0, 500)");
         widgets.get(1).click();
         totalCard.shouldHave(sizeGreaterThan(0));
     }
